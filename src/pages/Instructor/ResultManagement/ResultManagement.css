@@ -1,0 +1,503 @@
+.result-management-container {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.result-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: linear-gradient(90deg, #2a5bd7 0%, #1ca67a 100%); */
+    color: #1f2937;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+}
+
+.header-icon {
+    display: flex;
+    gap: 6px;
+}
+
+
+.result-header-content {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    flex: row;
+
+}
+
+.result-header-content p {
+    margin: 0;
+    font-size: 16px;
+    color: #64748b;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.export-btn {
+    background: linear-gradient(90deg, #2a5bd7 0%, #1ca67a 100%);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.export-btn:hover:not(:disabled) {
+    background: linear-gradient(90deg, #2a5bd7 0%, #1ca67a 100%);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.export-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Classes Navigation */
+.classes-navigation {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.classes-navigation h3 {
+    margin: 0 0 20px 0;
+    color: #2d3748;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.classes-horizontal-list {
+    padding-top: 20px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.class-card {
+    min-width: 280px;
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.class-card:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+.class-card.active {
+    border-color: #667eea;
+    background: linear-gradient(90deg, #2a5bd7 0%, #1ca67a 100%);
+    color: white;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.class-card-content h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.class-card-content p {
+    margin: 0 0 12px 0;
+    opacity: 0.8;
+}
+
+.student-count {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.class-card:not(.active) .student-count {
+    background: #e2e8f0;
+    color: #4a5568;
+}
+
+.selected-indicator {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(234, 230, 230, 0.2);
+    color: rgb(7, 239, 46);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.loading-classes {
+    text-align: center;
+    padding: 40px;
+    color: #718096;
+    font-style: italic;
+}
+
+.no-classes-horizontal {
+    text-align: center;
+    padding: 40px;
+    color: #a0aec0;
+}
+
+/* Results Section */
+.results-section {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.loading-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #718096;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e2e8f0;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error-results {
+    text-align: center;
+    padding: 40px;
+    color: #e53e3e;
+}
+
+.retry-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.retry-btn:hover {
+    background: #5a67d8;
+}
+
+/* Class Info */
+.class-info-rs {
+    padding: 25px;
+    background: linear-gradient(135deg, #fff 0%, #fff 100%);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.class-info-rs h2 {
+    margin: 0 0 10px 0;
+    color: #2d3748;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.class-info-rs p {
+    margin: 0 0 15px 0;
+    color: #4a5568;
+    font-size: 1.1rem;
+}
+
+.class-stats-rs {
+    display: flex;
+    gap: 30px;
+}
+
+.class-stats-rs span {
+    background: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    color: #4a5568;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Results Table */
+.results-table-container {
+    overflow-x: auto;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 0.9rem;
+}
+
+.instructor-name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.results-table th {
+    background: linear-gradient(90deg, #2a5bd7 0%, #1ca67a 100%);
+    background: linear-gradient(90deg, #2a5bd7 0%, #1ca67a 100%);
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.student-info-header {
+    min-width: 200px;
+    position: sticky;
+    left: 0;
+    z-index: 11;
+}
+
+.exam-header {
+    min-width: 150px;
+}
+
+.exam-header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.exam-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.exam-max-score {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.exam-date {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.average-header,
+.percentage-header {
+    min-width: 100px;
+}
+
+.results-table td {
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    vertical-align: middle;
+}
+
+.student-info {
+    background: #f7fafc;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    border-right: 2px solid #e2e8f0;
+}
+
+.student-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.student-name {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 4px;
+}
+
+.student-id {
+    font-size: 0.8rem;
+    color: #718096;
+}
+
+.exam-score {
+    min-width: 120px;
+}
+
+.score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.score {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.percentage {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.attempt {
+    font-size: 0.75rem;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-style: italic;
+}
+
+.no-result {
+    color: #a0aec0;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Score Colors */
+.excellent {
+    color: #38a169;
+    background: rgba(56, 161, 105, 0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+.good {
+    color: #3182ce;
+    background: rgba(49, 130, 206, 0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+.average {
+    color: #d69e2e;
+    background: rgba(214, 158, 46, 0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+.poor {
+    color: #e53e3e;
+    background: rgba(229, 62, 62, 0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+/* Average Row */
+.average-row {
+    background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+    font-weight: 600;
+    border-top: 3px solid #667eea;
+}
+
+.average-row td {
+    border-color: #cbd5e0;
+}
+
+.average-label {
+    background: #e2e8f0;
+    color: #2d3748;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    border-right: 2px solid #cbd5e0;
+}
+
+.student-average,
+.student-percentage,
+.exam-average,
+.class-total-average,
+.class-percentage {
+    font-weight: 600;
+}
+
+.avg-score,
+.percentage-value {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #a0aec0;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .result-management-container {
+        padding: 15px;
+    }
+
+    .result-page-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .classes-horizontal-list {
+        flex-direction: column;
+    }
+
+    .class-card {
+        min-width: auto;
+    }
+
+    .results-table {
+        font-size: 0.8rem;
+    }
+
+    .results-table th,
+    .results-table td {
+        padding: 8px 6px;
+    }
+}

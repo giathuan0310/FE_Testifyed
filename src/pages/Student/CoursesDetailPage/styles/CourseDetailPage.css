@@ -1,0 +1,95 @@
+/* CourseDetailPage.css - CSS thuần cho giao diện tương tự Tailwind */
+
+.cdp-container {
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    background: #f3f4f6;
+    padding: 32px 0 0 40px;
+}
+
+.cdp-header {
+    margin-bottom: 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cdp-title {
+    font-weight: 900;
+    color: #fb923c;
+    margin-bottom: 8px;
+    font-size: 2rem;
+}
+
+.cdp-code {
+    font-size: 1.125rem;
+    color: #4b5563;
+}
+
+.cdp-subnav {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 16px 24px;
+}
+
+.cdp-subnav-link {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #0a0b0c;
+    background: #e5e7eb;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: none;
+}
+
+.cdp-subnav-link:hover {
+    background: #d1d5db;
+    color: #111827;
+}
+
+.cdp-subnav-link.active {
+    background: #8FC689;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.cdp-content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 24px;
+    min-height: 300px;
+}
+
+.cdp-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.125rem;
+    color: #262626;
+    background: #fef3c7;
+}
+
+.cdp-notfound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.125rem;
+    color: #dc2626;
+    background: #bbf7d0;
+}

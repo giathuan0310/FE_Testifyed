@@ -1,0 +1,55 @@
+@import '../../Instructor//QuestionBank//QuestionBank.css';
+/* ========== CUSTOM CSS CHO ADMIN ========== */
+
+/* ✅ Styling cho cột "Người tạo" */
+.creator-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.creator-name {
+  font-weight: 500;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.creator-email {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.creator-role {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+/* Override header cho Admin */
+.question-bank-header .header-content h1 {
+  color: #1f2937;
+  /* Purple for Admin */
+}
+
+
+
+/* Responsive cho cột "Người tạo" */
+@media (max-width: 768px) {
+  .creator-info {
+    font-size: 12px;
+  }
+
+  .creator-name {
+    font-size: 13px;
+  }
+
+  .creator-email {
+    font-size: 11px;
+  }
+}

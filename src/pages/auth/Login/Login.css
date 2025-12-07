@@ -1,0 +1,32 @@
+/* Login Page Layout Styles */
+.login-page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-main {
+  flex: 1;
+  background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 40px 20px;
+  min-height: calc(100vh - 140px); /* Accounting for header and footer height */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-main {
+    padding: 20px 10px;
+    min-height: calc(100vh - 160px); /* Adjust for mobile header/footer */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-main {
+    padding: 15px 5px;
+    min-height: calc(100vh - 180px);
+  }
+}

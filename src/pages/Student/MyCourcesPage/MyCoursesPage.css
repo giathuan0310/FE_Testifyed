@@ -1,0 +1,299 @@
+.course-image-placeholder {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20190220/ourmid/pngtree-cartoon-education-training-cram-school-image_9149.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-image-overlay {
+    background-color: var(--course-bg-color, #FFC107);
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.my-courses-container {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.my-courses-container h2 {
+    margin-bottom: 20px;
+    color: #FF9800;
+
+
+}
+
+/* --- THANH TÌM KIẾM VÀ LỌC --- */
+.search-filter-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.search-input,
+.filter-dropdown {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.search-input {
+    color: #222 !important;
+    background: #fff;
+    border: 1px solid #dbe2ea;
+    padding: 10px 14px;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.filter-dropdown {
+    background-color: white;
+    min-width: 180px;
+    /* Tăng chiều rộng cho dropdown sắp xếp */
+    cursor: pointer;
+    /* Cho biết đây là một phần tử có thể tương tác */
+}
+
+/* --- LƯỚI KHÓA HỌC --- */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.course-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-image-container {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.course-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.course-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+
+    flex-direction: column;
+}
+
+.course-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.course-code {
+    font-size: 12px;
+    color: #757575;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.course-subject {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    flex-grow: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+.course-progress {
+    font-size: 14px;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.course-options {
+    margin-top: auto;
+    text-align: left;
+}
+
+.course-option-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #757575;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s ease-in-out;
+}
+
+.course-option-btn:hover {
+    color: #333;
+}
+
+/* --- THÔNG BÁO KHÔNG TÌM THẤY KẾT QUẢ --- */
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px 0;
+    color: #757575;
+    font-size: 18px;
+}
+
+/* --- PHÂN TRANG --- */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.pagination-button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #f0f0f0;
+}
+
+.pagination-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.pagination-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .courses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .search-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-input,
+    .filter-dropdown {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .courses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .course-card {
+        height: auto;
+    }
+
+    .course-image-container {
+        height: 120px;
+    }
+
+    .pagination-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .pagination-button {
+        margin: 2px;
+    }
+}
+
+.join-subject-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8faff;
+    padding: 18px 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+    margin-bottom: 32px;
+    border: 1px solid #e3e8ee;
+}
+
+.join-input {
+    padding: 10px 14px;
+    border-radius: 7px;
+    border: 1px solid #dbe2ea;
+    font-size: 16px;
+    background: #fff;
+    transition: border-color 0.2s;
+}
+
+.join-input:focus {
+    border-color: #2a5bd7;
+    outline: none;
+}
+
+.btn.btn-primary {
+    background: linear-gradient(90deg, #2a5bd7 0%, #1ca67a 100%);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btn.btn-primary:disabled {
+    background: #bfcbe6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn.btn-primary:hover:not(:disabled) {
+    background: linear-gradient(90deg, #1ca67a 0%, #2a5bd7 100%);
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.12);
+}

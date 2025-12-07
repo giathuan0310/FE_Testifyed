@@ -1,0 +1,277 @@
+/* CourseQuizzes.css */
+.cdq-tab-content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 24px;
+    min-height: 300px;
+}
+
+.cdq-tab-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fb923c;
+}
+
+.cdq-quiz-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cdq-quiz-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cdq-quiz-item:hover {
+    transform: translateY(-5px);
+}
+
+.cdq-quiz-info {
+    flex-grow: 1;
+    margin-right: 16px;
+}
+
+.cdq-quiz-type {
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 8px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.cdq-quiz-type.quiz {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.cdq-quiz-type.assignment {
+    background: #bbf7d0;
+    color: #166534;
+}
+
+.cdq-quiz-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #111827;
+    display: inline;
+}
+
+.cdq-quiz-due {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.cdq-quiz-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cdq-quiz-completed {
+    color: #22c55e;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.cdq-quiz-pending {
+    color: #f59e42;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.cdq-quiz-ongoing {
+    color: #3b82f6;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.cdq-action-button {
+    padding: 8px 16px;
+    background: #3b82f6;
+    color: #fff;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.cdq-action-button:hover {
+    background: #2563eb;
+}
+
+.cdq-empty {
+    text-align: center;
+    color: #6b7280;
+    padding: 32px 0;
+}
+
+.cdq-quiz-action {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.cdq-quiz-loading {
+    color: #666;
+    font-style: italic;
+}
+
+.cdq-quiz-completed {
+    color: #38a169;
+    font-weight: 600;
+}
+
+.cdq-quiz-ongoing {
+    color: #ed8936;
+    font-weight: 600;
+}
+
+.cdq-quiz-pending {
+    color: #3182ce;
+    font-weight: 600;
+}
+
+.cdq-quiz-disabled {
+    color: #e53e3e;
+    font-weight: 600;
+}
+
+.cdq-quiz-attempts {
+    font-size: 14px;
+    color: #666;
+    margin: 4px 0;
+}
+
+.cdq-action-button.review {
+    background-color: #38a169;
+}
+
+.cdq-action-button.continue {
+    background-color: #ed8936;
+}
+
+.cdq-action-button.disabled {
+    background-color: #e2e8f0;
+    color: #a0aec0;
+    cursor: not-allowed;
+}
+
+/* Thời gian thi */
+.cdq-quiz-time {
+    font-size: 14px;
+    color: #4a5568;
+    margin: 4px 0;
+}
+
+/* Trạng thái thời gian */
+.time-status {
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.time-status.not_started {
+    color: #ed8936;
+}
+
+.time-status.active {
+    color: #38a169;
+}
+
+.time-status.ended {
+    color: #e53e3e;
+}
+
+/* Thời gian còn lại */
+.cdq-time-remaining {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+.cdq-time-remaining.urgent {
+    color: #e53e3e;
+    font-weight: 600;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* Trạng thái mới */
+.cdq-quiz-not-started {
+    color: #ed8936;
+    font-weight: 600;
+}
+
+.cdq-quiz-ended {
+    color: #e53e3e;
+    font-weight: 600;
+}
+
+.cdq-quiz-missed {
+    color: #a0aec0;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Quiz action layout */
+.cdq-quiz-action {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+    min-width: 140px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cdq-quiz-action {
+        align-items: center;
+        min-width: auto;
+    }
+
+    .cdq-time-remaining {
+        text-align: center;
+    }
+}
+
+.cdq-quiz-cancelled {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.time-status.cancelled {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.cdq-quiz-item.cancelled {
+    opacity: 0.6;
+    border-left: 4px solid #dc3545;
+}

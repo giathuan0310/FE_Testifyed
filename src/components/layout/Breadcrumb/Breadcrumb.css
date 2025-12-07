@@ -1,0 +1,20 @@
+.breadcrumb {
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.breadcrumb-link {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.breadcrumb-sep {
+    margin: 0 4px;
+    color: #888;
+}
+
+.breadcrumb-current {
+    color: #222;
+    font-weight: 500;
+}

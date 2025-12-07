@@ -1,0 +1,366 @@
+.header-top {
+  background: linear-gradient(135deg, #91c788 0%, #5a9fd4 100%);
+  color: white;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-top .container {
+  display: flex;
+  justify-content: space-between;
+  /* Phân bố đều khoảng trống */
+  align-items: center;
+  padding: 12px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  /* Quan trọng: ngăn xuống hàng */
+}
+
+.contact-info {
+  display: flex;
+  gap: 30px;
+  font-size: 14px;
+  flex-shrink: 0;
+  /* Ngăn contact-info co lại */
+}
+
+.phone,
+.email {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-section-compact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-grow: 1;
+  /* Cho phép logo section chiếm không gian nếu cần */
+  justify-content: center;
+  /* Căn giữa logo */
+  flex-shrink: 0;
+}
+
+.logo-small {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.university-name-compact span {
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.language-login {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  justify-content: flex-end;
+  /* Đẩy về bên phải */
+  padding-right: -11px;
+  min-width: 220px;
+  /* Đảm bảo có đủ không gian */
+  flex-shrink: 0;
+  /* Ngăn language-login co lại */
+}
+
+/* Tách phần ngôn ngữ */
+.language-selector-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.language-select {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.language-select option {
+  background: #333;
+  color: white;
+}
+
+/* Phần container cho Avatar và Tên User */
+.user-info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Khoảng cách giữa avatar và tên */
+  cursor: pointer;
+  /* Cho phép click vào toàn bộ vùng */
+  position: relative;
+  /* Cần cho dropdown menu */
+  padding: 2px 8px;
+  /* Thêm padding để hover dễ hơn */
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.user-info-wrapper:hover {
+  background: #eaf6ef;
+}
+
+/* Avatar Circle */
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #91c788;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 12px;
+  /* Giữ nguyên hoặc điều chỉnh nếu muốn */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border: 2px solid #fff;
+  transition: box-shadow 0.2s;
+}
+
+.avatar-circle:hover {
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.18);
+}
+
+/* Tên User và mũi tên */
+.user-name-and-arrow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  /* Khoảng cách nhỏ giữa tên và mũi tên */
+}
+
+.user-name {
+  font-weight: 600;
+  color: #333;
+  background: #eaf6ef;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  /* Kích thước mũi tên */
+  margin-top: 2px;
+  /* Căn chỉnh lại vị trí mũi tên */
+}
+
+
+/* User menu container */
+.user-menu-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  /* Đặt đúng vị trí dưới user-info-wrapper */
+  right: 0;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+  min-width: 200px;
+  z-index: 1000;
+  padding: 8px 0;
+  animation: fadeInMenu 0.2s;
+}
+
+.dropdown-menu span {
+  display: block;
+  padding: 8px 21px;
+  cursor: pointer;
+  color: #333 !important;
+  background: #fff !important;
+
+}
+
+@keyframes fadeInMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 22px;
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background: #f0f4f8;
+  color: #5a9fd4;
+}
+
+.dropdown-menu>div {
+  padding: 10px 22px;
+  font-size: 15px;
+  color: #333;
+}
+
+
+.loginn-btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
+}
+
+.loginn-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+  text-decoration: underline;
+}
+
+/* Container utility */
+.container {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .header-top .container {
+    padding: 10px 15px;
+  }
+
+  .university-name-compact span {
+    font-size: 14px;
+  }
+
+  .contact-info {
+    gap: 20px;
+    font-size: 13px;
+  }
+
+  .logo-section-compact {
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+
+  .language-login {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-top .container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 15px;
+  }
+
+  .contact-info {
+    order: 2;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .logo-section-compact {
+    order: 1;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .university-name-compact span {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .language-login {
+    order: 3;
+    justify-content: center;
+    gap: 10px;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-top .container {
+    padding: 10px;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 11px;
+  }
+
+  .phone,
+  .email {
+    font-size: 11px;
+  }
+
+  .university-name-compact span {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .logo-small {
+    width: 30px;
+    height: 30px;
+  }
+
+  .language-select,
+  .loginn-btn {
+    font-size: 11px;
+    padding: 8px 15px;
+  }
+
+  .language-login {
+    gap: 8px;
+  }
+}
+
+/* Smooth scrolling enhancement */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+.language-select:focus,
+.loginn-btn:focus {
+  outline: 2px solid #ff6b35;
+  outline-offset: 2px;
+}

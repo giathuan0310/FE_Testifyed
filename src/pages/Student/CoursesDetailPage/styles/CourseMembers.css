@@ -1,0 +1,73 @@
+/* CourseMembers.css */
+.cdm-tab-content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 24px;
+    min-height: 300px;
+}
+
+.cdm-tab-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fb923c;
+}
+
+.cdm-member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cdm-member-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cdm-member-item:hover {
+    transform: translateY(-5px);
+}
+
+.cdm-member-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #6366f1;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.cdm-member-details {
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.cdm-member-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.cdm-member-code {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.cdm-empty {
+    text-align: center;
+    color: #6b7280;
+    padding: 32px 0;
+}

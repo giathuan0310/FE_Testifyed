@@ -1,0 +1,288 @@
+.stats-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.stats-card-clickable {
+  cursor: pointer;
+}
+
+.stats-card-clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stats-card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.stats-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--icon-bg);
+  color: var(--icon-color);
+  flex-shrink: 0;
+}
+
+.stats-icon-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.stats-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.stats-title {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.stats-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.stats-subtitle {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.stats-trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.stats-trend.up {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.stats-trend.down {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.stats-trend.neutral {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.trend-icon {
+  font-size: 10px;
+}
+
+.trend-value {
+  font-size: 11px;
+}
+
+/* Color variants */
+.stats-card-blue {
+  --primary-color: #3b82f6;
+  --secondary-color: #60a5fa;
+  --icon-bg: #dbeafe;
+  --icon-color: #1d4ed8;
+}
+
+.stats-card-green {
+  --primary-color: #10b981;
+  --secondary-color: #34d399;
+  --icon-bg: #d1fae5;
+  --icon-color: #047857;
+}
+
+.stats-card-yellow {
+  --primary-color: #f59e0b;
+  --secondary-color: #fbbf24;
+  --icon-bg: #fef3c7;
+  --icon-color: #d97706;
+}
+
+.stats-card-red {
+  --primary-color: #ef4444;
+  --secondary-color: #f87171;
+  --icon-bg: #fee2e2;
+  --icon-color: #dc2626;
+}
+
+.stats-card-purple {
+  --primary-color: #8b5cf6;
+  --secondary-color: #a78bfa;
+  --icon-bg: #ede9fe;
+  --icon-color: #7c3aed;
+}
+
+.stats-card-gray {
+  --primary-color: #6b7280;
+  --secondary-color: #9ca3af;
+  --icon-bg: #f3f4f6;
+  --icon-color: #4b5563;
+}
+
+.stats-card-orange {
+  --primary-color: #f59e0b;
+  --secondary-color: #fbbf24;
+  --icon-bg: #fef3c7;
+  --icon-color: #d97706;
+}
+
+.stats-card-indigo {
+  --primary-color: #6366f1;
+  --secondary-color: #818cf8;
+  --icon-bg: #e0e7ff;
+  --icon-color: #4f46e5;
+}
+
+.stats-card-cyan {
+  --primary-color: #06b6d4;
+  --secondary-color: #22d3ee;
+  --icon-bg: #cffafe;
+  --icon-color: #0891b2;
+}
+
+.stats-card-emerald {
+  --primary-color: #10b981;
+  --secondary-color: #34d399;
+  --icon-bg: #d1fae5;
+  --icon-color: #059669;
+}
+
+/* Loading state */
+.stats-card-loading {
+  pointer-events: none;
+}
+
+.stats-skeleton {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  animation: pulse 2s infinite;
+}
+
+.skeleton-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #e5e7eb;
+}
+
+.skeleton-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeleton-title {
+  height: 16px;
+  width: 60%;
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+
+.skeleton-value {
+  height: 32px;
+  width: 40%;
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .stats-card {
+    padding: 16px;
+  }
+  
+  .stats-card-content {
+    gap: 12px;
+  }
+  
+  .stats-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .stats-icon-text {
+    font-size: 16px;
+  }
+  
+  .stats-value {
+    font-size: 24px;
+  }
+  
+  .stats-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .stats-trend {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-card-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .stats-icon {
+    align-self: center;
+  }
+  
+  .stats-header {
+    align-items: center;
+  }
+}

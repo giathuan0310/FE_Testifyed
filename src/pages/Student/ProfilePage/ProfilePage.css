@@ -1,0 +1,180 @@
+.profile-container {
+    font-family: '"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #e0f7fa;
+    /* Light blue background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+}
+
+.profile-title {
+    color: #d2691e;
+    /* Brownish-orange for title */
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile-avatar-section {
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.profile-avatar-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #b2c7a7;
+    /* Light green background for avatar circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 15px;
+    overflow: hidden;
+    /* Ensure image fits within circle */
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Scale the image to cover the container */
+    border-radius: 50%;
+}
+
+.profile-upload-button {
+    background-color: #ff8c00;
+    /* Orange for upload button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.profile-file-input {
+    display: none;
+    /* Hide the default file input element */
+}
+
+.profile-form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+    /* Space between input groups on larger screens */
+}
+
+.profile-input-group {
+    flex: 1;
+    /* Each input group takes equal space */
+    text-align: left;
+}
+
+.profile-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.profile-input-field {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+    background-color: white;
+}
+
+.profile-update-button {
+    background-color: #007bff;
+    /* Blue for the update button */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.profile-change-password-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #007bff;
+    /* Blue link color */
+
+    cursor: pointer;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    padding: 32px 24px;
+    min-width: 340px;
+    box-shadow: 0 2px 16px rgba(44, 62, 80, 0.12);
+}
+
+.modal-input-group {
+    margin-bottom: 16px;
+}
+
+.modal-input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.modal-input-group input {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.profile-change-password-btn {
+    background: none;
+    border: none;
+    color: #040405;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: underline;
+}

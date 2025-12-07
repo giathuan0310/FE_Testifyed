@@ -1,0 +1,252 @@
+/* Styles copied/adapted from ExamReviewPage.css with rdm- prefix to avoid conflicts */
+
+/* Page wrapper */
+.rdm-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.rdm-page .rdm-page-inner {}
+
+/* Breadcrumb / header */
+.rdm-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.rdm-breadcrumb .rdm-back-btn {
+    padding: 8px 12px;
+    background-color: #3182ce;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Summary card */
+.rdm-summary-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.rdm-summary-card .summary-left {
+    flex: 1;
+}
+
+.rdm-summary-card .summary-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+}
+
+/* summary grid */
+.rdm-summary-card .meta-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.bg {
+    background: linear-gradient(90deg, #2a5bd7 0%, #1ca67a 100%);
+    border-radius: 10px;
+    color: #cbd5e0;
+}
+
+.rdm-summary-card .meta-row.small {
+    font-size: 13px;
+    color: #4a5568;
+    margin-top: 10px;
+
+}
+
+/* values */
+.rdm-score-value {
+    font-size: 20px;
+    color: #3182ce;
+    font-weight: 700;
+}
+
+.rdm-correct-value {
+    color: #38a169;
+    font-weight: 700;
+}
+
+.rdm-percentage-value {
+    color: #ed8936;
+    font-weight: 700;
+}
+
+.rdm-status {
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: #c6f6d5;
+    color: #22543d;
+    font-weight: 600;
+}
+
+/* Questions section */
+.rdm-questions-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.rdm-questions-section h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+/* Question card */
+.rdm-question-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    background: #fafafa;
+    margin-bottom: 18px;
+}
+
+.rdm-question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.rdm-q-index {
+    font-weight: 700;
+}
+
+.rdm-q-points {
+    color: #4a5568;
+    font-weight: 600;
+}
+
+.rdm-q-content {
+    background: white;
+    padding: 12px;
+    border-left: 4px solid #3182ce;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    color: #2d3748;
+}
+
+/* Options list */
+.rdm-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rdm-option-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    background: #fff;
+    position: relative;
+}
+
+.rdm-option-item.correct {
+    border-color: #38a169;
+    background: #f0fff4;
+}
+
+.rdm-option-item.selected {
+    border-color: #bee3f8;
+    background: #ebf8ff;
+}
+
+.rdm-option-letter {
+    font-weight: 600;
+    margin-right: 10px;
+    color: #4a5568;
+}
+
+.rdm-option-text {
+    flex: 1;
+    color: #2d3748;
+}
+
+.rdm-option-tags {
+    margin-left: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+/* Fill in blank */
+.rdm-fill-answer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.rdm-answer-box {
+    padding: 10px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.rdm-answer-box.correct {
+    border-color: #68d391;
+    background: #f0fff4;
+}
+
+.rdm-answer-box.incorrect {
+    border-color: #fc8181;
+    background: #fff5f5;
+}
+
+/* AI block */
+.rdm-ai-block {
+    margin-top: 12px;
+    padding: 12px;
+    background: #edf2f7;
+    border-radius: 8px;
+    border: 1px solid #cbd5e0;
+}
+
+/* Footer */
+.rdm-page-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.rdm-close-btn {
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    background: #e2e8f0;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+    .rdm-summary-card {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .rdm-summary-card .meta-row {
+        gap: 12px;
+    }
+}

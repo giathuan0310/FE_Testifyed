@@ -1,0 +1,186 @@
+.search-bar-container {
+  width: 100%;
+}
+
+.search-bar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.search-bar-wrapper:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+  color: #6b7280;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1f2937;
+  font-size: 14px;
+  padding-left: 44px;
+  padding-right: 44px;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-input:disabled {
+  background-color: #f9fafb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.clear-button {
+  position: absolute;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition: all 0.2s;
+}
+
+.clear-button:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.clear-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Size variants */
+.search-bar-small .search-input {
+  padding: 8px 40px 8px 40px;
+  font-size: 13px;
+}
+
+.search-bar-small .search-icon {
+  left: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+.search-bar-small .clear-button {
+  right: 6px;
+  width: 24px;
+  height: 24px;
+}
+
+.search-bar-small .clear-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.search-bar-medium .search-input {
+  padding: 10px 44px 10px 44px;
+  font-size: 14px;
+}
+
+.search-bar-large .search-input {
+  padding: 12px 48px 12px 48px;
+  font-size: 16px;
+}
+
+.search-bar-large .search-icon {
+  left: 14px;
+  width: 22px;
+  height: 22px;
+}
+
+.search-bar-large .clear-button {
+  right: 10px;
+  width: 32px;
+  height: 32px;
+}
+
+.search-bar-large .clear-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Focus states */
+.search-bar-wrapper:focus-within .search-icon {
+  color: #3b82f6;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .search-bar-wrapper {
+    background-color: #374151;
+    border-color: #4b5563;
+  }
+  
+  .search-input {
+    color: #f9fafb;
+  }
+  
+  .search-input::placeholder {
+    color: #9ca3af;
+  }
+  
+  .search-input:disabled {
+    background-color: #4b5563;
+    color: #9ca3af;
+  }
+  
+  .search-bar-wrapper:focus-within {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+  }
+  
+  .clear-button:hover {
+    background-color: #4b5563;
+    color: #e5e7eb;
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .search-bar-large .search-input {
+    padding: 10px 44px;
+    font-size: 14px;
+  }
+  
+  .search-bar-large .search-icon {
+    width: 20px;
+    height: 20px;
+    left: 12px;
+  }
+  
+  .search-bar-large .clear-button {
+    width: 28px;
+    height: 28px;
+    right: 8px;
+  }
+  
+  .search-bar-large .clear-button svg {
+    width: 16px;
+    height: 16px;
+  }
+}

@@ -1,0 +1,101 @@
+.dashboard-navbar {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    z-index: 500;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-left-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar-logo-small {
+    width: 250px;
+    height: 50px;
+    margin-right: 15px;
+    object-fit: contain;
+}
+
+.navbar-university-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+
+.navbar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: #0a0b0c;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    padding-bottom: 5px;
+    position: relative;
+
+}
+
+
+.navbar-menu li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #7cb342;
+    transition: width 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+    color: #7cb342;
+}
+
+.navbar-menu li a:hover::after {
+    width: 100%;
+}
+
+
+.navbar-navigation {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button {
+    background-color: #c8e6c9;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.nav-button:hover {
+    background-color: #a5d6a7;
+}
