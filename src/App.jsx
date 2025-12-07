@@ -51,9 +51,10 @@ function App() {
           } />
 
           {/* Protected Admin Routes */}
-          <Route path="/admin/*" element={
+          <Route path="/admin/*" element={<Home />
             <AdminRoutes />
           } />
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </Router>
       <ToastContainer position="top-right" autoClose={3000} />
