@@ -4,6 +4,7 @@ import { loginApi } from '../../../service/api/apiUser';
 import './LoginForm.css';
 import { useAppStore } from '../../../store/appStore';
 import { toast } from 'react-toastify';
+import LoadingSpinner from '../../ui/LoadingSpinner';
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     code: '',
@@ -13,6 +14,7 @@ const LoginForm = () => {
   const setIsAuthenticated = useAppStore(state => state.setIsAuthenticated);
   const navigate = useNavigate();
   const location = useLocation();
+  const [loading, setLoading] = useState(false);
 
   // Lấy URL mà user muốn truy cập trước khi bị redirect đến login
   const from = location.state?.from?.pathname || '/student/dashboard';
@@ -27,6 +29,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const data = await loginApi(formData.code, formData.password);
       if (data.status) {
         setUser(data.data.user);
@@ -49,6 +52,8 @@ const LoginForm = () => {
       }
     } catch (err) {
       toast.error('Lỗi kết nối server!');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -59,6 +64,13 @@ const LoginForm = () => {
           Đăng nhập vào Hệ Thống Kiểm Tra
           Trực Tuyến - Testifyed
         </h1>
+        {loading && (
+          <div className="quiz-modal-overlay">
+            <div className="quiz-modal" style={{ padding: 24 }}>
+              <LoadingSpinner size="large" message="Đang đăng nhập..." />
+            </div>
+          </div>
+        )}
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
             <input

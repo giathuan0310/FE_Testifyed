@@ -12,6 +12,7 @@ import './styles/QuizTakingPage.css';
 import Breadcrumb from '../../../components/layout/Breadcrumb/Breadcrumb';
 import { toast } from 'react-toastify';
 // import DebugApi from '../../../components/DebugApi';
+import LoadingSpinner from '../../../components/ui/LoadingSpinner'
 
 const QuizTakingPage = () => {
 
@@ -37,6 +38,7 @@ const QuizTakingPage = () => {
     const [timeRemaining, setTimeRemaining] = useState(null);
     const [examStarted, setExamStarted] = useState(false);
     const [examResult, setExamResult] = useState(null);
+    const [submitting, setSubmitting] = useState(false);
 
     // Thêm hàm tính thời gian dựa trên schedule
     const calculateRemainingTime = (exam, examInstance, scheduleInfo) => {
@@ -376,11 +378,12 @@ const QuizTakingPage = () => {
 
     const handleSubmitExam = async () => {
         try {
+            setSubmitting(true);
+            setShowConfirm(false);
             const response = await submitExamApi(quizId, user._id);
 
             if (response && response.success) {
                 setExamResult(response.data);
-                setShowConfirm(false);
                 setShowSuccess(true);
                 toast.success('Nộp bài thành công!');
             } else {
@@ -402,6 +405,8 @@ const QuizTakingPage = () => {
             }
 
             toast.error(errorMessage);
+        } finally {
+            setSubmitting(false);
         }
     };
 
@@ -453,12 +458,21 @@ const QuizTakingPage = () => {
                     <div className="quiz-modal">
                         <h3>Bạn có chắc chắn muốn nộp bài?</h3>
                         <div className="quiz-modal-actions">
-                            <button className="quiz-modal-btn" onClick={handleSubmitExam}>Xác nhận</button>
+                            <button className="quiz-modal-btn" onClick={handleSubmitExam}> {submitting ? 'Đang nộp...' : 'Xác nhận'}</button>
                             <button className="quiz-modal-btn cancel" onClick={() => setShowConfirm(false)}>Hủy</button>
                         </div>
                     </div>
                 </div>
             )}
+            {/* Overlay spinner khi đang nộp/chấm điểm */}
+            {submitting && (
+                <div className="quiz-modal-overlay">
+                    <div className="quiz-modal" style={{ padding: 24 }}>
+                        <LoadingSpinner size="large" message="Đang chấm điểm..." />
+                    </div>
+                </div>
+            )}
+
             {/* Modal thông báo nộp bài thành công */}
             {showSuccess && (
                 <div className="quiz-modal-overlay">
@@ -557,7 +571,7 @@ const QuizTakingPage = () => {
                         <div className="quiz-take-question-content">
                             {questions[currentIdx]?.content || 'No question content available'}
                         </div>
-                        
+
                         {/* Hiển thị theo loại câu hỏi */}
                         {questions[currentIdx]?.questionType === 'fill_in_blank' || questions[currentIdx]?.type === 'fill_in_blank' ? (
                             // Câu hỏi điền từ
@@ -608,7 +622,7 @@ const QuizTakingPage = () => {
                                 )}
                             </div>
                         )}
-                        
+
                         <div className="quiz-take-question-actions">
                             <button className="quiz-take-nav-btn" onClick={handlePrev} disabled={currentIdx === 0}>Quay lại</button>
                             <button className="quiz-take-nav-btn" onClick={handleNext} disabled={currentIdx === questions.length - 1}>Trang tiếp</button>
