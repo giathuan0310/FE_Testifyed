@@ -52,10 +52,8 @@ function App() {
 
           {/* Protected Admin Routes */}
           <Route path="/admin/*" element={
-
             <AdminRoutes />
           } />
-
         </Routes>
       </Router>
       <ToastContainer position="top-right" autoClose={3000} />

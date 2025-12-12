@@ -53,7 +53,7 @@ const InstructorLayout = () => {
         {/* Header */}
         <div className="sidebar-header">
           <div className="sidebar-logo">
-            <img src="https://testifyed.lhgt.id.vn/assets/Logo2T-Dm7vfVsN.png" alt="Logo" />
+            <img src="/src/assets/Logo2T.png" alt="Logo" />
             {isSidebarOpen && <h2>Testifyed</h2>}
           </div>
           <button className="sidebar-toggle" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>

@@ -12,7 +12,8 @@ import {
   validateExamQuestionsApi
 } from '../../../service/api/apiExam';
 import {
-  getAllSubjectsApi
+  getAllSubjectsApi, getAllInstructorsApi
+
 } from '../../../service/api/apiAdmin';
 // ✅ Import components từ instructor
 import ExamFormModal from '../../Instructor/ExamManagement/components/ExamFormModal';
@@ -35,12 +36,27 @@ const ManageExams = () => {
   const [validationResult, setValidationResult] = useState(null);
   const [isValidating, setIsValidating] = useState(false);
   const [validationError, setValidationError] = useState(null);
+  const [instructors, setInstructors] = useState([]);
+
+
 
   useEffect(() => {
     fetchExams();
     fetchSubjects();
+    fetchInstructors();
   }, []);
 
+  const fetchInstructors = async () => {
+    try {
+      const res = await getAllInstructorsApi();
+
+      const list = Array.isArray(res) ? res : (res?.data || []);
+      setInstructors(list);
+    } catch (e) {
+      console.error('Failed to fetch instructors', e);
+      setInstructors([]);
+    }
+  };
   const fetchExams = async () => {
     setLoading(true);
     try {
@@ -516,6 +532,8 @@ const ManageExams = () => {
         validationError={validationError}
         resetValidation={resetValidation}
         autoValidate={false} // ✅ Tắt auto-validation cho admin
+        isAdmin={true}
+        instructors={instructors}
       />
     </div>
   );

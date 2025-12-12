@@ -492,3 +492,9 @@ export const cancelExamScheduleApi = async (id) => {
     return response.data;
 };
 
+export const getAllInstructorsApi = async () => {
+  const res = await axiosInstance.get('/v1/api/user/instructors', {
+    headers: getAuthHeader()
+  });
+  return res.data?.data || [];
+};

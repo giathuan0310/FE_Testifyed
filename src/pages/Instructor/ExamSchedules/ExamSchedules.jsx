@@ -220,7 +220,13 @@ const ExamSchedules = () => {
                     <div className="schedule-subject">
                         <small>
                             Môn: {item.classId?.subjectId ? getSubjectName(item.classId.subjectId) : 'N/A'}
+                            <br />
+                            Người tạo: {item.creatorId?.role === 'ADMIN' ? 'Admin' : (item.creatorId?.fullName || '—')}
+
                         </small>
+
+
+
                     </div>
                 </div>
             )

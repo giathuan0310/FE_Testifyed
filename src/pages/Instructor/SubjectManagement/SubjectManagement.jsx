@@ -188,20 +188,20 @@ const SubjectManagement = () => {
 
         { key: 'code', title: 'Mã môn học' },
         { key: 'description', title: 'Mô tả' },
-        {
-            key: 'actions',
-            title: 'Hành động',
-            render: (_, item) => (
-                <div className="subject-action-buttons">
-                    <button className="subject-btn-action subject-btn-edit" onClick={() => openModal(item)} title="Sửa">
-                        <FiEdit3 size={16} />
-                    </button>
-                    <button className="subject-btn-action subject-btn-delete" onClick={() => handleDelete(item._id)} title="Xóa">
-                        <FiTrash2 size={16} />
-                    </button>
-                </div>
-            )
-        }
+        // {
+        //     key: 'actions',
+        //     title: 'Hành động',
+        //     render: (_, item) => (
+        //         <div className="subject-action-buttons">
+        //             <button className="subject-btn-action subject-btn-edit" onClick={() => openModal(item)} title="Sửa">
+        //                 <FiEdit3 size={16} />
+        //             </button>
+        //             <button className="subject-btn-action subject-btn-delete" onClick={() => handleDelete(item._id)} title="Xóa">
+        //                 <FiTrash2 size={16} />
+        //             </button>
+        //         </div>
+        //     )
+        // }
     ];
 
     return (
@@ -211,12 +211,12 @@ const SubjectManagement = () => {
                     <h1>Quản lý môn học</h1>
                     <p>Tạo, sửa, xóa các môn học trong hệ thống</p>
                 </div>
-                <div className="subject-header-actions">
+                {/* <div className="subject-header-actions">
                     <button className="btn btn-primary" onClick={() => openModal()}>
                         <FiPlus size={16} />
                         Thêm môn học
                     </button>
-                </div>
+                </div> */}
             </div>
             {/* Stats */}
             <div className="subject-stats">

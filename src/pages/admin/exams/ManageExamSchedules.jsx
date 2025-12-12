@@ -369,6 +369,8 @@ const ManageExamSchedules = () => {
           <div className="schedule-subject">
             <small style={{ fontSize: '11px', color: '#9ca3af' }}>
               Môn: {item.classId?.subjectId ? getSubjectName(item.classId.subjectId) : 'N/A'}
+              <br />
+              Người tạo: {item.creatorId?.fullName || 'N/A'}
             </small>
           </div>
         </div>

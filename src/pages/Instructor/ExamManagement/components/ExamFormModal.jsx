@@ -39,7 +39,9 @@ const ExamFormModal = ({
     isValidating,
     validationError,
     resetValidation,
-    onSaveIPRestriction
+    onSaveIPRestriction,
+    isAdmin = false,
+    instructors = []
 }) => {
     // ============================= HOOKS =============================
     const {
@@ -75,6 +77,7 @@ const ExamFormModal = ({
     const [initialFormData, setInitialFormData] = useState(null);
     const [showValidationErrors, setShowValidationErrors] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [selectedInstructorId, setSelectedInstructorId] = useState('');
 
     // Ref để track xem có đang edit structure không
     const isEditingStructureRef = useRef(false);
@@ -274,6 +277,10 @@ const ExamFormModal = ({
                     };
                     normalizedData.ipRestriction = ipRestriction;
 
+                    // NEW: đính kèm creatorId khi là admin (create/update)
+                    if (isAdmin && selectedInstructorId) {
+                        normalizedData.creatorId = selectedInstructorId;
+                    }
                     const result = await onSubmit(normalizedData);
                     if (result && result.success === false) {
                         toast.error(result.error || 'Lỗi khi lưu kỳ thi');
@@ -318,10 +325,10 @@ const ExamFormModal = ({
             // Tạo bản sao structure mới TỪ prev
             const newStructure = prev.generationConfig.structure.map((item, i) => {
                 if (i !== idx) return item;
-                
+
                 // Clone item hiện tại
                 const updatedItem = { ...item, [field]: value };
-                
+
                 // Reset dependent fields
                 if (field === 'subjectId' && value) {
                     updatedItem.chapter = '';
@@ -329,13 +336,13 @@ const ExamFormModal = ({
                 } else if (field === 'chapter' && value) {
                     updatedItem.topic = '';
                 }
-                
+
                 return updatedItem;
             });
 
             // Tính totals từ newStructure
             const newTotals = calculateExamTotals(newStructure);
-            
+
             return {
                 ...prev,
                 questionCount: newTotals.questionCount,
@@ -382,7 +389,7 @@ const ExamFormModal = ({
         const newIndex = form.generationConfig.structure.length;
         const newStructure = [...form.generationConfig.structure, { ...defaultStructure }];
         const newTotals = calculateExamTotals(newStructure);
-        
+
         setForm(prev => ({
             ...prev,
             questionCount: newTotals.questionCount,
@@ -407,7 +414,7 @@ const ExamFormModal = ({
     const removeStructure = (idx) => {
         const newStructure = form.generationConfig.structure.filter((_, i) => i !== idx);
         const newTotals = calculateExamTotals(newStructure);
-        
+
         setForm(prev => ({
             ...prev,
             questionCount: newTotals.questionCount,
@@ -473,7 +480,11 @@ const ExamFormModal = ({
 
         // BẬT HIỂN THỊ LỖI KHI SUBMIT
         setShowValidationErrors(true);
-
+        // NEW: bắt buộc chọn giảng viên khi admin tạo mới
+        if (isAdmin && !editingExam && !selectedInstructorId) {
+            toast.error('Vui lòng chọn giảng viên tạo kỳ thi');
+            return;
+        }
         // 1. Validate form cơ bản trước
         const errors = validateCompleteExamForm(form);
         if (Object.keys(errors).length > 0) {
@@ -512,10 +523,19 @@ const ExamFormModal = ({
             setIsSubmitting(false);
         }
     };
+    useEffect(() => {
+        if (!isOpen) return;
+        // Prefill khi edit: nếu có creatorId thì set sẵn
+        const prefillId =
+            typeof editingExam?.creatorId === 'object'
+                ? editingExam.creatorId?._id
+                : editingExam?.creatorId;
+        setSelectedInstructorId(prefillId || '');
+    }, [isOpen, editingExam]);
+
     // Load dữ liệu IP khi mở modal (tạo: default; sửa: load từ editingExam)
     useEffect(() => {
         if (!isOpen) return;
-
         if (editingExam?.ipRestriction) {
             const ip = editingExam.ipRestriction;
             setIpEnabled(!!ip.enabled);
@@ -549,6 +569,30 @@ const ExamFormModal = ({
                     {/* ========== THÔNG TIN KỲ THI ========== */}
                     <div className="exam-form-section">
                         <h3>Thông tin kỳ thi</h3>
+                        {isAdmin && (
+                            <div className="exam-form-row">
+                                <div className="exam-form-group" style={{ flex: 1 }}>
+                                    <label>Giảng viên tạo kỳ thi *</label>
+                                    <select
+                                        value={selectedInstructorId}
+                                        onChange={(e) => setSelectedInstructorId(e.target.value)}
+                                        required
+                                    >
+                                        <option value="">Chọn giảng viên</option>
+                                        {(instructors || []).map(ins => (
+                                            <option key={ins._id} value={ins._id}>
+                                                {ins.fullName} ({ins.code})
+                                            </option>
+                                        ))}
+                                    </select>
+                                    {showValidationErrors && !selectedInstructorId && (
+                                        <div className="field-error">
+                                            <span>Vui lòng chọn giảng viên</span>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
 
                         <div className="exam-form-row">
                             <div className="exam-form-group">

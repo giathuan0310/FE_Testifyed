@@ -11,7 +11,7 @@ export const getAllExamSchedulesApi = async () => {
     const response = await axiosInstance.get("/v1/api/exam-schedule", {
         headers: getAuthHeader()
     });
-    return response.data;
+    return { data: response.data?.data || [] };
 };
 export const getExamScheduleByIdApi = async (id) => {
     const response = await axiosInstance.get(`/v1/api/exam-schedule/${id}`, {
