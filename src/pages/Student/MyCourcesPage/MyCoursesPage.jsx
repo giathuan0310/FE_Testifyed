@@ -133,7 +133,7 @@ const MyCoursesPage = () => {
             <form className="join-subject-form" onSubmit={handleJoin} style={{ marginBottom: 24 }}>
                 <input
                     type="text"
-                    placeholder="Mã môn học (VD: MATH101)"
+                    placeholder="Mã lớp học (VD: MATH101)"
                     value={codeJoin}
                     onChange={e => setCodeJoin(e.target.value)}
                     className="join-input"
